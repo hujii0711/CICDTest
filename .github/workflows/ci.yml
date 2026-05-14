@@ -1,0 +1,22 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run a one-line script
+      run: echo "Starting CI/CD Pipeline..."
+
+    - name: Run a multi-line script
+      run: |
+        echo "This is where you would add your build, test, and deploy steps."
+        echo "Example: npm install, npm test, or pip install, pytest"
