@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= post ? '게시글 수정' : '새 글 쓰기' %> - Node.js 게시판</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><%= post ? '게시글 수정' : '새 글 쓰기' %></h1>
+        </header>
+
+        <main>
+            <form action="<%= post ? '/edit/' + post.id : '/write' %>" method="POST" class="post-form">
+                <div class="form-group">
+                    <label for="author">작성자</label>
+                    <input type="text" id="author" name="author" value="<%= post ? post.author : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="title">제목</label>
+                    <input type="text" id="title" name="title" value="<%= post ? post.title : '' %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="content">내용</label>
+                    <textarea id="content" name="content" rows="10" required><%= post ? post.content : '' %></textarea>
+                </div>
+
+                <div class="action-bar">
+                    <a href="javascript:history.back()" class="btn">취소</a>
+                    <button type="submit" class="btn btn-primary"><%= post ? '수정 완료' : '등록' %></button>
+                </div>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

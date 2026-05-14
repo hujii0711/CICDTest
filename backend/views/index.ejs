@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js 게시판</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Node.js Simple Board</h1>
+            <p>익스프레스와 EJS로 만든 간단한 게시판입니다.</p>
+        </header>
+
+        <main>
+            <div class="action-bar">
+                <a href="/write" class="btn btn-primary">글쓰기</a>
+            </div>
+
+            <table class="board-list">
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% if (posts.length > 0) { %>
+                        <% posts.forEach(post => { %>
+                            <tr>
+                                <td><%= post.id %></td>
+                                <td><a href="/post/<%= post.id %>"><%= post.title %></a></td>
+                                <td><%= post.author %></td>
+                                <td><%= post.createdAt.toLocaleDateString() %></td>
+                            </tr>
+                        <% }) %>
+                    <% } else { %>
+                        <tr>
+                            <td colspan="4" class="no-data">게시글이 없습니다.</td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+</html>
