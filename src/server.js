@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Data (In-memory)
 let posts = [
     { id: 1, title: '첫 번째 게시글', content: '안녕하세요, 반갑습니다1.', author: '관리자', createdAt: new Date() },
-    { id: 2, title: 'Node.js 공부 중', content: '익스프레스와 EJS를 배우고 있습니다.', author: '학습자', createdAt: new Date() }
+    { id: 2, title: 'Node.js 공부 중', content: '익스프레스와 EJS를 배우고 있습니다1.', author: '학습자', createdAt: new Date() }
 ];
 
 // Middlewares
